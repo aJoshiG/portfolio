@@ -1,0 +1,126 @@
+<div class="card form-card">
+  @if (status() === 'success') {
+    <div class="success" role="status">
+      <span class="success-icon" aria-hidden="true">✓</span>
+      <h3 tabindex="-1">Message sent!</h3>
+      <p>Thanks for reaching out. I'll get back to you soon.</p>
+      <button type="button" class="btn btn-ghost btn-sm" (click)="sendAnother()">
+        Send another message
+      </button>
+    </div>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate aria-label="Contact form">
+      <div class="row">
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input
+            id="cf-name"
+            type="text"
+            formControlName="name"
+            autocomplete="name"
+            placeholder="Your name"
+            [attr.aria-invalid]="showError('name')"
+            [attr.aria-describedby]="showError('name') ? 'cf-name-error' : null"
+          />
+          @if (showError('name')) {
+            <p class="error" id="cf-name-error">
+              @if (form.controls.name.hasError('maxlength')) {
+                Please keep your name under 100 characters.
+              } @else {
+                Please enter your name.
+              }
+            </p>
+          }
+        </div>
+
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input
+            id="cf-email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            [attr.aria-invalid]="showError('email')"
+            [attr.aria-describedby]="showError('email') ? 'cf-email-error' : null"
+          />
+          @if (showError('email')) {
+            <p class="error" id="cf-email-error">
+              @if (form.controls.email.hasError('required')) {
+                Please enter your email so I can reply.
+              } @else {
+                That doesn't look like a valid email address.
+              }
+            </p>
+          }
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label-row">
+          <label for="cf-message">Message</label>
+          <span class="counter" [class.over]="messageLength() > messageMax" aria-hidden="true">
+            {{ messageLength() }}/{{ messageMax }}
+          </span>
+        </div>
+        <textarea
+          id="cf-message"
+          formControlName="message"
+          rows="6"
+          placeholder="Tell me about the opportunity or project…"
+          [attr.aria-invalid]="showError('message')"
+          [attr.aria-describedby]="showError('message') ? 'cf-message-error' : null"
+        ></textarea>
+        @if (showError('message')) {
+          <p class="error" id="cf-message-error">
+            @if (form.controls.message.hasError('required')) {
+              Please write a message.
+            } @else if (form.controls.message.hasError('minlength')) {
+              Please write at least {{ messageMin }} characters.
+            } @else {
+              Please keep it under {{ messageMax }} characters.
+            }
+          </p>
+        }
+      </div>
+
+      <!-- Honeypot: invisible to people and screen readers -->
+      <div class="honeypot" aria-hidden="true">
+        <label for="cf-website">Leave this field empty</label>
+        <input
+          id="cf-website"
+          type="text"
+          formControlName="website"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="submit-row">
+        <div role="alert">
+          @if (status() === 'error') {
+            <p class="form-error">
+              @if (errorKind() === 'config') {
+                The contact form isn't connected yet.
+              } @else {
+                Something went wrong sending your message. Please try again in a moment.
+              }
+              @if (email) {
+                You can also email me at
+                <a [href]="email.url">{{ email.url.replace('mailto:', '') }}</a>.
+              }
+            </p>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary submit" [disabled]="status() === 'sending'">
+          @if (status() === 'sending') {
+            <span class="spinner" aria-hidden="true"></span> Sending…
+          } @else {
+            Send message <app-icon name="arrow-up-right" [size]="16" />
+          }
+        </button>
+      </div>
+    </form>
+  }
+</div>

@@ -98,7 +98,7 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 1. [x] **Scaffold**: Angular 21 project, static prerender, self-hosted fonts, theme tokens, typed data files, local git (done 2026-11-25)
 2. [x] **Layout**: sticky navbar with scroll spy + mobile menu, theme toggle, footer, icon set, section headers + shells (done 2026-11-25)
 3. [x] **Content sections**: hero, about, skills, experience (hidden until filled), projects (SkillSwap featured + screenshot), achievements, contact intro (done 2026-11-25)
-4. [ ] **Contact**: EmailJS setup, form, spam protection
+4. [x] **Contact**: validated form (EmailJS, loaded on demand), honeypot + fill-time + rate-limit spam protection, accessible errors/success, lazy-loaded with @defer (done 2026-11-25; needs EmailJS keys, see README)
 5. [ ] **Polish**: animations, responsive pass, accessibility + Lighthouse fixes, SEO tags
 6. [ ] **Final check & publish**: full bug/mistake review, then GitHub + Vercel deploy (+ custom domain if wanted)
 

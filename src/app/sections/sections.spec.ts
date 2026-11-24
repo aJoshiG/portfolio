@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { DeferBlockState, TestBed } from '@angular/core/testing';
 import { Type } from '@angular/core';
 import { Hero } from './hero/hero';
 import { About } from './about/about';
@@ -14,6 +14,8 @@ import { PROJECTS } from '../data/projects';
 import { SKILL_GROUPS } from '../data/skills';
 
 async function render<T>(component: Type<T>, inputs: Record<string, unknown> = {}) {
+  TestBed.configureTestingModule({ imports: [component] });
+  await TestBed.compileComponents(); // needed for @defer blocks
   const fixture = TestBed.createComponent(component);
   for (const [key, value] of Object.entries(inputs)) fixture.componentRef.setInput(key, value);
   await fixture.whenStable();
@@ -111,5 +113,18 @@ describe('Contact', () => {
   it('offers a mailto link', async () => {
     const el = await render(Contact);
     expect(el.querySelector('a[href^="mailto:"]')).toBeTruthy();
+  });
+
+  it('loads the deferred contact form', async () => {
+    TestBed.configureTestingModule({ imports: [Contact] });
+    await TestBed.compileComponents();
+    const fixture = TestBed.createComponent(Contact);
+    await fixture.whenStable();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('form')).toBeNull();
+
+    const [block] = await fixture.getDeferBlocks();
+    await block.render(DeferBlockState.Complete);
+    expect(el.querySelector('form #cf-email')).toBeTruthy();
   });
 });

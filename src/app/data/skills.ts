@@ -14,8 +14,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
     skills: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'Socket.io', 'REST APIs', 'JWT auth'],
   },
   {
-    title: 'ML & Data',
-    skills: ['Machine Learning', 'NumPy', 'Jupyter', 'Google Colab'],
+    title: 'CS & ML',
+    skills: ['Machine Learning', 'Data Structures & Algorithms', 'OOP', 'Jupyter', 'Google Colab'],
   },
   {
     title: 'Tools',

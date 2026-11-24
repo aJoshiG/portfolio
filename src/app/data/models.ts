@@ -10,9 +10,16 @@ export interface SocialLink {
 export interface Profile {
   name: string;
   role: string;
+  /** One-liner used for SEO / link previews. */
   headline: string;
+  /** Big line under the name in the hero. */
+  tagline: string;
+  /** Short paragraph in the hero. */
+  intro: string;
   summary: string;
   location: string;
+  /** Short status shown as a pill in the hero. Leave empty to hide it. */
+  availability: string;
   avatar: string;
   /** Leave empty until public/resume.pdf exists; the Resume button hides itself. */
   resumeUrl: string;

@@ -10,7 +10,11 @@ export type IconName =
   | 'menu'
   | 'close'
   | 'arrow-up-right'
-  | 'download';
+  | 'download'
+  | 'award'
+  | 'users'
+  | 'folder'
+  | 'map-pin';
 
 /** Brand marks are filled shapes; everything else is a 24px stroke icon. */
 const FILLED: ReadonlySet<IconName> = new Set(['github', 'linkedin', 'x']);
@@ -82,6 +86,24 @@ const FILLED: ReadonlySet<IconName> = new Set(['github', 'linkedin', 'x']);
         }
         @case ('download') {
           <svg:path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+        }
+        @case ('award') {
+          <svg:circle cx="12" cy="8" r="6" />
+          <svg:path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+        }
+        @case ('users') {
+          <svg:path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <svg:circle cx="9" cy="7" r="4" />
+          <svg:path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+        }
+        @case ('folder') {
+          <svg:path
+            d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"
+          />
+        }
+        @case ('map-pin') {
+          <svg:path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+          <svg:circle cx="12" cy="10" r="3" />
         }
       }
     </svg>

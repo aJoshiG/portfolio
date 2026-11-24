@@ -1,0 +1,81 @@
+@let p = project();
+
+@if (p.featured) {
+  <article class="featured">
+    @if (p.image) {
+      <a
+        class="shot"
+        [href]="p.demoUrl ?? p.repoUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <img [src]="p.image.src" [alt]="p.image.alt" width="1280" height="800" loading="lazy" decoding="async" />
+      </a>
+    }
+
+    <div class="body">
+      <p class="eyebrow">Featured project</p>
+      <h3 class="title">{{ p.title }}</h3>
+      <p class="tagline">{{ p.tagline }}</p>
+      <p class="description">{{ p.description }}</p>
+
+      @if (p.highlights.length) {
+        <ul class="highlights">
+          @for (point of p.highlights; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      }
+
+      <ul class="tech-list" aria-label="Built with">
+        @for (tech of p.tech; track tech) {
+          <li>{{ tech }}</li>
+        }
+      </ul>
+
+      <div class="links">
+        @if (p.demoUrl) {
+          <a class="btn btn-primary btn-sm" [href]="p.demoUrl" target="_blank" rel="noopener noreferrer">
+            Live demo <app-icon name="arrow-up-right" [size]="16" />
+          </a>
+        }
+        @if (p.repoUrl) {
+          <a class="btn btn-ghost btn-sm" [href]="p.repoUrl" target="_blank" rel="noopener noreferrer">
+            <app-icon name="github" [size]="16" /> Source code
+          </a>
+        }
+      </div>
+      @if (p.demoNote) {
+        <p class="note">{{ p.demoNote }}</p>
+      }
+    </div>
+  </article>
+} @else {
+  <article class="card card-hover compact">
+    <div class="top">
+      <app-icon name="folder" [size]="32" class="folder" />
+      <div class="icon-links">
+        @if (p.repoUrl) {
+          <a [href]="p.repoUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="p.title + ' source code'">
+            <app-icon name="github" [size]="20" />
+          </a>
+        }
+        @if (p.demoUrl) {
+          <a [href]="p.demoUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="p.title + ' live demo'">
+            <app-icon name="arrow-up-right" [size]="20" />
+          </a>
+        }
+      </div>
+    </div>
+    <h3 class="title">{{ p.title }}</h3>
+    <p class="description">{{ p.description }}</p>
+    <ul class="tech-list" aria-label="Built with">
+      @for (tech of p.tech; track tech) {
+        <li>{{ tech }}</li>
+      }
+    </ul>
+  </article>
+}

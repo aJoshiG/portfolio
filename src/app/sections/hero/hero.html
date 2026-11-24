@@ -1,0 +1,44 @@
+<section id="hero" class="hero container" aria-labelledby="hero-title">
+  <div class="intro">
+    @if (profile.availability) {
+      <p class="status"><span class="dot" aria-hidden="true"></span>{{ profile.availability }}</p>
+    }
+    <p class="eyebrow">Hi, my name is</p>
+    <h1 id="hero-title">{{ profile.name }}.</h1>
+    <p class="role">{{ profile.tagline }}</p>
+    <p class="headline">{{ profile.intro }}</p>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="#projects">View my work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      @if (profile.resumeUrl) {
+        <a class="btn btn-ghost" [href]="profile.resumeUrl" target="_blank" rel="noopener">
+          <app-icon name="download" [size]="16" /> Resume
+        </a>
+      }
+    </div>
+
+    <ul class="socials" aria-label="Social profiles">
+      @for (social of profile.socials; track social.url) {
+        <li>
+          <a
+            [href]="social.url"
+            [attr.aria-label]="social.label"
+            [attr.target]="social.icon === 'email' ? null : '_blank'"
+            [attr.rel]="social.icon === 'email' ? null : 'noopener noreferrer'"
+          >
+            <app-icon [name]="social.icon" [size]="20" />
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="portrait" aria-hidden="true">
+    <div class="glow"></div>
+    <img [src]="profile.avatar" alt="" width="300" height="300" fetchpriority="high" />
+    @for (tag of orbitTags; track tag; let i = $index) {
+      <span [class]="'orbit-tag tag-' + i">{{ tag }}</span>
+    }
+  </div>
+</section>

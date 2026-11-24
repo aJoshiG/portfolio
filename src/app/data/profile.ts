@@ -5,12 +5,17 @@ export const PROFILE: Profile = {
   role: 'Full-Stack Developer',
   headline:
     'Full-stack developer building real-time web apps, with a growing focus on machine learning.',
+  tagline: 'I build real-time web apps.',
+  intro:
+    'Full-stack developer and CS student at JNU, New Delhi. I work across Angular, Node.js and MongoDB, ' +
+    "and I'm going deeper into machine learning.",
   summary:
     "I'm a Computer Science student at JNU, New Delhi, doing a dual B.Tech + M.Tech degree. " +
     'I like building complete products, from the database and API to the interface people use, ' +
     'and I care about the details that make software feel reliable. ' +
     "Right now I'm going deeper into machine learning and looking for internships where I can ship real features.",
   location: 'New Delhi, India',
+  availability: 'Open to internships',
   avatar: '/avatar.svg',
   resumeUrl: '',
   socials: [

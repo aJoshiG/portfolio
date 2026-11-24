@@ -19,6 +19,10 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/aJoshiG/skillswap',
     demoUrl: 'https://skillswap-7dfr.onrender.com',
     demoNote: 'Use the demo account. The free server can take ~50s to wake up.',
+    image: {
+      src: '/projects/skillswap/matches.png',
+      alt: 'SkillSwap matches page ranking people whose skills line up with yours, two-way swaps first',
+    },
     featured: true,
   },
   {

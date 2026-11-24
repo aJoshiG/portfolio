@@ -96,7 +96,7 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 ## Build Steps
 
 1. [x] **Scaffold**: Angular 21 project, static prerender, self-hosted fonts, theme tokens, typed data files, local git (done 2026-11-25)
-2. [ ] **Layout**: navbar, footer, theme toggle, section shells
+2. [x] **Layout**: sticky navbar with scroll spy + mobile menu, theme toggle, footer, icon set, section headers + shells (done 2026-11-25)
 3. [ ] **Content sections**: hero, about, skills, projects, achievements, driven by data files
 4. [ ] **Contact**: EmailJS setup, form, spam protection
 5. [ ] **Polish**: animations, responsive pass, accessibility + Lighthouse fixes, SEO tags

@@ -1,0 +1,48 @@
+<header class="nav" [class.scrolled]="scrolled() || menuOpen()">
+  <nav class="container nav-inner" aria-label="Main">
+    <a class="brand" href="#hero" (click)="closeMenu()">
+      <img [src]="profile.avatar" alt="" width="34" height="34" />
+      <span>{{ profile.name }}</span>
+    </a>
+
+    <ul id="nav-menu" class="links" [class.open]="menuOpen()">
+      @for (item of items; track item.id) {
+        <li>
+          <a
+            [href]="'#' + item.id"
+            [class.active]="spy.active() === item.id"
+            [attr.aria-current]="spy.active() === item.id ? 'location' : null"
+            (click)="closeMenu()"
+          >
+            <span class="num">{{ sectionNumber(item.id) }}.</span>{{ item.label }}
+          </a>
+        </li>
+      }
+      @if (profile.resumeUrl) {
+        <li>
+          <a class="btn btn-ghost btn-sm" [href]="profile.resumeUrl" target="_blank" rel="noopener">
+            Resume
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="actions">
+      <app-theme-toggle />
+      <button
+        type="button"
+        class="menu-btn"
+        aria-controls="nav-menu"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+        (click)="toggleMenu()"
+      >
+        @if (menuOpen()) {
+          <app-icon name="close" [size]="22" />
+        } @else {
+          <app-icon name="menu" [size]="22" />
+        }
+      </button>
+    </div>
+  </nav>
+</header>

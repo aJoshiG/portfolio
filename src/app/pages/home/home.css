@@ -1,9 +1,10 @@
-.preview {
-  min-height: 100vh;
+.hero {
+  min-height: calc(100svh - var(--nav-height));
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--space-4);
+  padding-block: var(--space-16);
 }
 
 .avatar {
@@ -27,8 +28,15 @@ h1 {
   color: var(--color-text-muted);
 }
 
-.note {
-  font-size: var(--text-xs);
+.section {
+  padding-block: var(--space-24);
+  min-height: 60vh;
+}
+
+.placeholder {
+  padding: var(--space-12);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
   color: var(--color-text-muted);
-  opacity: 0.7;
+  text-align: center;
 }

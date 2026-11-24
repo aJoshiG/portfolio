@@ -25,19 +25,28 @@ All text lives in `src/app/data/`, so no HTML changes are needed:
 | `projects.ts` | Projects (set `featured: true` for the large card) |
 | `achievements.ts` | Certifications and leadership roles |
 
+**Adding a project screenshot:** put WebP images in `public/projects/<slug>/` (e.g. 640, 960 and 1280 px wide)
+and list them in the project's `image.srcset`.
+
+**Adding a resume:** save it as `public/resume.pdf` and set `resumeUrl: '/resume.pdf'` in `profile.ts`.
+The Resume buttons appear automatically.
+
 ## Structure
 
 ```
 src/
-├── index.html          meta tags + no-flash theme script
-├── styles.css          design tokens (colors, type, spacing) + base styles
+├── index.html          meta tags, link-preview tags, no-flash theme script
+├── styles.css          design tokens (colors, type, spacing), base styles, shared classes
 └── app/
-    ├── data/           all site content (typed)
+    ├── config/         EmailJS keys
+    ├── data/           all site content (typed) + nav order
     ├── pages/home/     the single scrolling page
-    ├── layout/         navbar, footer, theme toggle        (step 2)
-    ├── sections/       hero, about, skills, ...            (step 3)
-    ├── shared/         reusable UI pieces                  (steps 2–3)
-    └── services/       theme + contact                     (steps 2 and 4)
+    ├── layout/         navbar (scroll spy, mobile menu), footer, theme toggle
+    ├── sections/       hero, about, skills, experience, projects, achievements, contact
+    ├── shared/         icon set, section header, project card, scroll-reveal directive
+    └── services/       theme, scroll spy, contact (EmailJS)
+public/                 avatar, icons, link-preview image, project screenshots, robots.txt
+vercel.json             hosting config: caching, security headers, unknown URLs -> home page
 ```
 
 ## Contact form setup (EmailJS)

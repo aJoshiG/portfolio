@@ -38,6 +38,57 @@ describe('Navbar', () => {
     expect(document.body.classList.contains('menu-open')).toBe(false);
   });
 
+  it('makes the page behind the open menu inert and returns focus on Escape', async () => {
+    const main = document.body.appendChild(document.createElement('main'));
+    try {
+      const { fixture, el } = await render();
+      const button = el.querySelector<HTMLButtonElement>('.menu-btn')!;
+
+      button.click();
+      await fixture.whenStable();
+      expect(main.hasAttribute('inert')).toBe(true);
+
+      el.querySelector<HTMLAnchorElement>('#nav-menu a')!.focus();
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      await fixture.whenStable();
+      expect(main.hasAttribute('inert')).toBe(false);
+      expect(document.activeElement).toBe(button);
+    } finally {
+      main.remove();
+    }
+  });
+
+  it('ignores Escape while the menu is closed', async () => {
+    const { el } = await render();
+    const link = el.querySelector<HTMLAnchorElement>('.brand')!;
+    link.focus();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(document.activeElement).toBe(link);
+  });
+
+  it('closes the menu when the window grows past the mobile breakpoint', async () => {
+    let onChange: ((e: { matches: boolean }) => void) | undefined;
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: true,
+      media: query,
+      addEventListener: (_: string, cb: (e: { matches: boolean }) => void) => (onChange = cb),
+      removeEventListener: () => {},
+    })) as unknown as typeof window.matchMedia;
+    try {
+      const { fixture, el } = await render();
+      el.querySelector<HTMLButtonElement>('.menu-btn')!.click();
+      await fixture.whenStable();
+      expect(document.body.classList.contains('menu-open')).toBe(true);
+
+      onChange!({ matches: false });
+      await fixture.whenStable();
+      expect(document.body.classList.contains('menu-open')).toBe(false);
+    } finally {
+      window.matchMedia = original;
+    }
+  });
+
   it('closes the menu when a link is clicked', async () => {
     const { fixture, el } = await render();
     el.querySelector<HTMLButtonElement>('.menu-btn')!.click();

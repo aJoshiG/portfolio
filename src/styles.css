@@ -165,9 +165,11 @@ p a {
   color: var(--color-on-accent);
 }
 
-/* Set by the navbar while the mobile menu is open */
-body.menu-open {
-  overflow: hidden;
+/* Set by the navbar while the mobile menu is open (only ever locks on mobile widths) */
+@media (max-width: 820px) {
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
 /* =========================================================

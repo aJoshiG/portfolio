@@ -25,7 +25,7 @@ export const PROFILE: Profile = {
       url: 'https://www.linkedin.com/in/aditya-joshi-358b2132a',
       icon: 'linkedin',
     },
-    { label: 'X', url: 'https://twitter.com/AdityaAdi0310', icon: 'x' },
+    { label: 'X', url: 'https://x.com/AdityaAdi0310', icon: 'x' },
     { label: 'Email', url: 'mailto:aditya.adi0310@gmail.com', icon: 'email' },
   ],
   quickFacts: [

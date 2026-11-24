@@ -103,7 +103,7 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 6. [ ] **Final check & publish**: [x] full bug/mistake review (2026-11-25), [x] GitHub (public) and [x] Vercel deploy (https://portfolio-rust-two-47.vercel.app, 2026-11-25) (+ custom domain if wanted)
    - [x] Absolute og:image, og:url, canonical, JSON-LD url → https://portfolio-rust-two-47.vercel.app
    - [x] `sitemap.xml` + referenced from `robots.txt`; real 404 page (`public/404.html`)
-   - [x] `vercel.json`: plain static (framework: null, so Vercel adds no SPA fallback and 404.html works), long-term caching for hashed files, security headers (verified live)
+   - [x] `vercel.json`: explicit `routes` (headers → real files → 404.html with 404 status), 1-year caching for hashed files, security headers. Verified live; live Lighthouse 100/100/100/100 mobile + desktop
    - [ ] Add the live URL to EmailJS allowed origins
    - [x] Fill the portfolio project's `repoUrl` (https://github.com/aJoshiG/portfolio)
 

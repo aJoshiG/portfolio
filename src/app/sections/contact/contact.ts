@@ -1,17 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PROFILE } from '../../data/profile';
 import { Icon } from '../../shared/icon/icon';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 import { ContactForm } from './contact-form';
 
 @Component({
   selector: 'app-contact',
-  imports: [SectionHeader, Icon, ContactForm],
+  imports: [SectionHeader, Icon, ContactForm, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="contact" class="section container" aria-labelledby="contact-title">
       <app-section-header sectionId="contact" />
-      <div class="layout">
+      <div class="layout" appReveal>
         <div class="intro">
           <p class="lead">Let's build something together.</p>
           <p class="text">

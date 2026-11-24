@@ -38,7 +38,9 @@ export class ThemeService {
     this.transitionTimer = setTimeout(() => root.classList.remove('theme-transition'), 350);
 
     root.setAttribute('data-theme', theme);
-    this.doc.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLORS[theme]);
+    this.doc
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', THEME_COLORS[theme]);
     this.theme.set(theme);
 
     if (persist) {

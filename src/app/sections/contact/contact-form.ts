@@ -113,9 +113,12 @@ export class ContactForm {
     this.submitted.set(false);
     this.status.set('success');
     // Move focus to the confirmation so keyboard and screen-reader users hear it.
-    afterNextRender(() => this.host.nativeElement.querySelector<HTMLElement>('.success h3')?.focus(), {
-      injector: this.injector,
-    });
+    afterNextRender(
+      () => this.host.nativeElement.querySelector<HTMLElement>('.success h3')?.focus(),
+      {
+        injector: this.injector,
+      },
+    );
   }
 
   private focusFirstInvalid(): void {

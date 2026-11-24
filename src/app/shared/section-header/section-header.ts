@@ -1,9 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { NAV_ITEMS, sectionNumber } from '../../data/navigation';
+import { RevealDirective } from '../reveal/reveal.directive';
 
 /** "02. Skills ———" style heading. Its id is `<sectionId>-title` for aria-labelledby. */
 @Component({
   selector: 'app-section-header',
+  hostDirectives: [RevealDirective],
+  host: { style: 'display: block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <h2 class="header" [id]="sectionId() + '-title'">

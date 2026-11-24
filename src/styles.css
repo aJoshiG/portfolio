@@ -70,9 +70,9 @@
   --color-border: #e2e8f0;
   --color-text: #0f172a;
   --color-text-muted: #475569;
-  --color-accent: #0d9488;
-  --color-accent-strong: #0f766e;
-  --color-accent-soft: rgb(13 148 136 / 0.1);
+  --color-accent: #0f766e; /* 5.2:1 on bg: passes WCAG AA for small text */
+  --color-accent-strong: #115e59;
+  --color-accent-soft: rgb(15 118 110 / 0.1);
   --color-on-accent: #ffffff;
   --color-danger: #dc2626;
   --color-success: #059669;
@@ -145,6 +145,13 @@ a {
 
 a:hover {
   color: var(--color-accent-strong);
+}
+
+/* Links inside running text are underlined, not told apart by color alone. */
+p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 :focus-visible {
@@ -278,6 +285,22 @@ body.menu-open {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--color-accent);
+}
+
+/* Scroll reveal (see RevealDirective). Hiding is instant; only the fade-in is
+   animated, so the directive's transitionend clean-up fires once, after the reveal. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: none;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 0.7s var(--ease-out) var(--reveal-delay, 0ms);
 }
 
 /* =========================================================

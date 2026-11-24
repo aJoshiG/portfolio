@@ -99,8 +99,13 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 2. [x] **Layout**: sticky navbar with scroll spy + mobile menu, theme toggle, footer, icon set, section headers + shells (done 2026-11-25)
 3. [x] **Content sections**: hero, about, skills, experience (hidden until filled), projects (SkillSwap featured + screenshot), achievements, contact intro (done 2026-11-25)
 4. [x] **Contact**: validated form (EmailJS, loaded on demand), honeypot + fill-time + rate-limit spam protection, accessible errors/success, lazy-loaded with @defer (done 2026-11-25; needs EmailJS keys, see README)
-5. [ ] **Polish**: animations, responsive pass, accessibility + Lighthouse fixes, SEO tags
+5. [x] **Polish**: scroll-reveal animations, light-theme contrast fix, responsive WebP images, robots.txt, Open Graph + Twitter + JSON-LD tags, link-preview image + app icons. Lighthouse: mobile 97/100/100/100, desktop 100/100/100/100 (done 2026-11-25)
 6. [ ] **Final check & publish**: full bug/mistake review, then GitHub + Vercel deploy (+ custom domain if wanted)
+   - [ ] Replace relative og:image / add og:url + canonical with the live https:// URL (see SITE_URL note in `src/index.html`)
+   - [ ] Add `sitemap.xml` and reference it from `robots.txt`
+   - [ ] `vercel.json`: long-term caching for hashed files, security headers
+   - [ ] Add the live URL to EmailJS allowed origins
+   - [ ] Fill the portfolio project's `repoUrl` once it's on GitHub
 
 ## Decisions
 

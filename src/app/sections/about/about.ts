@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PROFILE } from '../../data/profile';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 
 @Component({
   selector: 'app-about',
-  imports: [SectionHeader],
+  imports: [SectionHeader, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="about" class="section container" aria-labelledby="about-title">
       <app-section-header sectionId="about" />
-      <div class="layout">
+      <div class="layout" appReveal>
         <p class="summary">{{ profile.summary }}</p>
         <dl class="facts">
           @for (fact of profile.quickFacts; track fact.label) {

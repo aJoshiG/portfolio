@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ACHIEVEMENTS } from '../../data/achievements';
 import { Icon } from '../../shared/icon/icon';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 
 @Component({
   selector: 'app-achievements',
-  imports: [SectionHeader, Icon],
+  imports: [SectionHeader, Icon, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="achievements" class="section container" aria-labelledby="achievements-title">
@@ -14,7 +15,7 @@ import { SectionHeader } from '../../shared/section-header/section-header';
       <h3 class="group-title"><app-icon name="award" [size]="18" /> Certifications</h3>
       <div class="grid">
         @for (cert of certifications; track cert.title) {
-          <article class="card card-hover cert">
+          <article class="card card-hover cert" appReveal>
             <div class="cert-head">
               <h4>{{ cert.title }}</h4>
               @if (cert.date) {
@@ -36,8 +37,8 @@ import { SectionHeader } from '../../shared/section-header/section-header';
 
       <h3 class="group-title"><app-icon name="users" [size]="18" /> Leadership</h3>
       <div class="grid">
-        @for (role of leadership; track role.title) {
-          <article class="card card-hover">
+        @for (role of leadership; track role.title; let i = $index) {
+          <article class="card card-hover" appReveal [appRevealDelay]="i * 80">
             <h4>{{ role.title }}</h4>
             <p class="issuer">{{ role.issuer }}</p>
             @if (role.detail) {

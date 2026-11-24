@@ -2,19 +2,20 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { ExperienceItem } from '../../data/models';
 import { EXPERIENCE } from '../../data/experience';
 import { Icon } from '../../shared/icon/icon';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 
 /** Timeline of roles. The home page only renders this when EXPERIENCE has entries. */
 @Component({
   selector: 'app-experience',
-  imports: [SectionHeader, Icon],
+  imports: [SectionHeader, Icon, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="experience" class="section container" aria-labelledby="experience-title">
       <app-section-header sectionId="experience" />
       <ol class="timeline">
         @for (item of items(); track item.role + item.organization) {
-          <li class="entry">
+          <li class="entry" appReveal>
             <p class="dates">{{ item.start }} — {{ item.end }}</p>
             <div class="card">
               <h3>
@@ -31,7 +32,12 @@ import { SectionHeader } from '../../shared/section-header/section-header';
                 </ul>
               }
               @if (item.certificateUrl) {
-                <a class="cert" [href]="item.certificateUrl" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="cert"
+                  [href]="item.certificateUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View certificate <app-icon name="arrow-up-right" [size]="14" />
                 </a>
               }

@@ -53,7 +53,8 @@ export interface Project {
   demoUrl?: string;
   /** Optional note shown next to the demo link, e.g. hosting cold-start. */
   demoNote?: string;
-  image?: { src: string; alt: string };
+  /** `srcset` lists the same image at several widths so phones download a smaller file. */
+  image?: { src: string; srcset?: string; alt: string };
   featured: boolean;
 }
 

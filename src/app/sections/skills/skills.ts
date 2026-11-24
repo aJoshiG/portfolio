@@ -1,17 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SKILL_GROUPS } from '../../data/skills';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 
 @Component({
   selector: 'app-skills',
-  imports: [SectionHeader],
+  imports: [SectionHeader, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="skills" class="section container" aria-labelledby="skills-title">
       <app-section-header sectionId="skills" />
       <div class="grid">
-        @for (group of groups; track group.title) {
-          <article class="card card-hover group">
+        @for (group of groups; track group.title; let i = $index) {
+          <article class="card card-hover group" appReveal [appRevealDelay]="i * 80">
             <h3>{{ group.title }}</h3>
             <ul class="chip-list">
               @for (skill of group.skills; track skill) {

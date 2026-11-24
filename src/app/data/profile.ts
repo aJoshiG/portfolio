@@ -20,7 +20,11 @@ export const PROFILE: Profile = {
   resumeUrl: '',
   socials: [
     { label: 'GitHub', url: 'https://github.com/aJoshiG', icon: 'github' },
-    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/aditya-joshi-358b2132a', icon: 'linkedin' },
+    {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/aditya-joshi-358b2132a',
+      icon: 'linkedin',
+    },
     { label: 'X', url: 'https://twitter.com/AdityaAdi0310', icon: 'x' },
     { label: 'Email', url: 'mailto:aditya.adi0310@gmail.com', icon: 'email' },
   ],

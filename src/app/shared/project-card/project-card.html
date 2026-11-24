@@ -12,7 +12,16 @@
         aria-hidden="true"
       >
         <div class="browser-bar"><span></span><span></span><span></span></div>
-        <img [src]="p.image.src" [alt]="p.image.alt" width="1280" height="800" loading="lazy" decoding="async" />
+        <img
+          [src]="p.image.src"
+          [attr.srcset]="p.image.srcset ?? null"
+          sizes="(max-width: 900px) 100vw, 560px"
+          [alt]="p.image.alt"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        />
       </a>
     }
 
@@ -38,12 +47,22 @@
 
       <div class="links">
         @if (p.demoUrl) {
-          <a class="btn btn-primary btn-sm" [href]="p.demoUrl" target="_blank" rel="noopener noreferrer">
+          <a
+            class="btn btn-primary btn-sm"
+            [href]="p.demoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Live demo <app-icon name="arrow-up-right" [size]="16" />
           </a>
         }
         @if (p.repoUrl) {
-          <a class="btn btn-ghost btn-sm" [href]="p.repoUrl" target="_blank" rel="noopener noreferrer">
+          <a
+            class="btn btn-ghost btn-sm"
+            [href]="p.repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <app-icon name="github" [size]="16" /> Source code
           </a>
         }
@@ -59,12 +78,22 @@
       <app-icon name="folder" [size]="32" class="folder" />
       <div class="icon-links">
         @if (p.repoUrl) {
-          <a [href]="p.repoUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="p.title + ' source code'">
+          <a
+            [href]="p.repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="p.title + ' source code'"
+          >
             <app-icon name="github" [size]="20" />
           </a>
         }
         @if (p.demoUrl) {
-          <a [href]="p.demoUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="p.title + ' live demo'">
+          <a
+            [href]="p.demoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="p.title + ' live demo'"
+          >
             <app-icon name="arrow-up-right" [size]="20" />
           </a>
         }

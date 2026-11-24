@@ -3,11 +3,12 @@ import { PROFILE } from '../../data/profile';
 import { PROJECTS } from '../../data/projects';
 import { Icon } from '../../shared/icon/icon';
 import { ProjectCard } from '../../shared/project-card/project-card';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { SectionHeader } from '../../shared/section-header/section-header';
 
 @Component({
   selector: 'app-projects',
-  imports: [SectionHeader, ProjectCard, Icon],
+  imports: [SectionHeader, ProjectCard, Icon, RevealDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="projects" class="section container" aria-labelledby="projects-title">
@@ -15,16 +16,23 @@ import { SectionHeader } from '../../shared/section-header/section-header';
 
       <div class="featured-list">
         @for (project of featured; track project.slug) {
-          <app-project-card [project]="project" />
+          <app-project-card [project]="project" appReveal />
         }
       </div>
 
-      <h3 class="more-title">Other things I've built</h3>
+      <h3 class="more-title" appReveal>Other things I've built</h3>
       <div class="grid">
-        @for (project of others; track project.slug) {
-          <app-project-card [project]="project" />
+        @for (project of others; track project.slug; let i = $index) {
+          <app-project-card [project]="project" appReveal [appRevealDelay]="i * 80" />
         }
-        <a class="card more" [href]="githubUrl" target="_blank" rel="noopener noreferrer">
+        <a
+          class="card more"
+          appReveal
+          [appRevealDelay]="others.length * 80"
+          [href]="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <app-icon name="github" [size]="28" />
           <span class="more-label">More on GitHub</span>
           <span class="more-sub">Experiments, coursework and what I'm building next</span>

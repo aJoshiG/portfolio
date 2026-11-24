@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Illustrated avatar of Aditya Joshi">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9d3f0"/>
+      <stop offset="1" stop-color="#9bbde6"/>
+    </linearGradient>
+    <clipPath id="circle"><circle cx="200" cy="200" r="200"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#circle)">
+    <!-- background -->
+    <rect width="400" height="400" fill="url(#bg)"/>
+    <circle cx="320" cy="70" r="60" fill="#ffffff" opacity="0.12"/>
+    <circle cx="70" cy="330" r="80" fill="#ffffff" opacity="0.08"/>
+
+    <!-- neck -->
+    <path d="M172 245 L228 245 L230 300 L170 300 Z" fill="#c98d68"/>
+    <path d="M172 262 Q200 282 228 262 L228 245 L172 245 Z" fill="#b57856" opacity="0.6"/>
+
+    <!-- shirt -->
+    <path d="M62 400 C66 335 112 306 168 290 L232 290 C288 306 334 335 338 400 Z" fill="url(#shirt)"/>
+    <path d="M200 316 L200 400" stroke="#86a9d6" stroke-width="3"/>
+    <circle cx="200" cy="342" r="4" fill="#f8fbff"/>
+    <circle cx="200" cy="376" r="4" fill="#f8fbff"/>
+    <!-- pocket -->
+    <path d="M240 344 h40 v36 q0 8 -8 8 h-24 q-8 0 -8 -8 Z" fill="none" stroke="#86a9d6" stroke-width="3" stroke-linejoin="round"/>
+    <!-- collar -->
+    <path d="M170 284 L200 318 L160 334 L152 296 Z" fill="#cfe1f5" stroke="#86a9d6" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M230 284 L200 318 L240 334 L248 296 Z" fill="#cfe1f5" stroke="#86a9d6" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- ears -->
+    <ellipse cx="129" cy="196" rx="13" ry="18" fill="#d39a75"/>
+    <ellipse cx="271" cy="196" rx="13" ry="18" fill="#d39a75"/>
+    <ellipse cx="130" cy="197" rx="6" ry="9" fill="#bd8260"/>
+    <ellipse cx="270" cy="197" rx="6" ry="9" fill="#bd8260"/>
+
+    <!-- face -->
+    <ellipse cx="200" cy="190" rx="72" ry="84" fill="#dea47e"/>
+
+    <!-- beard (short, trimmed) -->
+    <path d="M131 206 C134 254 166 280 200 281 C234 280 266 254 269 206
+             C262 236 248 250 234 254 C222 262 178 262 166 254 C152 250 138 236 131 206 Z"
+          fill="#3b2a20" opacity="0.75"/>
+    <!-- mustache -->
+    <path d="M176 234 C186 225 214 225 224 234 C212 231 188 231 176 234 Z" fill="#3b2a20" opacity="0.9"/>
+    <!-- smile -->
+    <path d="M184 242 Q200 256 216 242 Q200 248 184 242 Z" fill="#8a3f33"/>
+    <path d="M190 247 Q200 252 210 247" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- cheeks -->
+    <ellipse cx="157" cy="214" rx="12" ry="7" fill="#f08a7e" opacity="0.35"/>
+    <ellipse cx="243" cy="214" rx="12" ry="7" fill="#f08a7e" opacity="0.35"/>
+
+    <!-- eyebrows -->
+    <path d="M154 168 Q171 159 187 167" fill="none" stroke="#1f1612" stroke-width="7" stroke-linecap="round"/>
+    <path d="M213 167 Q229 159 246 168" fill="none" stroke="#1f1612" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <ellipse cx="171" cy="190" rx="8" ry="10" fill="#1b1210"/>
+    <ellipse cx="229" cy="190" rx="8" ry="10" fill="#1b1210"/>
+    <circle cx="174" cy="186" r="3" fill="#ffffff"/>
+    <circle cx="232" cy="186" r="3" fill="#ffffff"/>
+
+    <!-- nose -->
+    <path d="M201 196 Q195 213 199 217 Q204 219 209 215" fill="none" stroke="#b97752" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- hair: base -->
+    <path d="M124 196 C114 122 158 90 200 92 C244 90 288 122 276 196
+             C270 166 258 146 244 138 C218 150 182 150 158 138 C144 146 130 166 124 196 Z"
+          fill="#1f1612"/>
+    <!-- hair: curls -->
+    <g fill="#1f1612">
+      <circle cx="132" cy="160" r="15"/>
+      <circle cx="136" cy="134" r="17"/>
+      <circle cx="152" cy="110" r="18"/>
+      <circle cx="176" cy="94" r="19"/>
+      <circle cx="203" cy="88" r="20"/>
+      <circle cx="230" cy="94" r="19"/>
+      <circle cx="252" cy="110" r="18"/>
+      <circle cx="266" cy="134" r="17"/>
+      <circle cx="268" cy="160" r="15"/>
+      <circle cx="168" cy="132" r="14"/>
+      <circle cx="190" cy="138" r="13"/>
+      <circle cx="212" cy="138" r="13"/>
+      <circle cx="234" cy="132" r="14"/>
+      <circle cx="154" cy="142" r="11"/>
+      <circle cx="248" cy="142" r="11"/>
+    </g>
+    <!-- hair: curl highlights -->
+    <g fill="none" stroke="#4a362c" stroke-width="3" stroke-linecap="round">
+      <path d="M144 128 a8 8 0 0 1 12 -6"/>
+      <path d="M168 92 a9 9 0 0 1 13 -6"/>
+      <path d="M197 82 a9 9 0 0 1 13 -4"/>
+      <path d="M225 90 a9 9 0 0 1 12 2"/>
+      <path d="M248 106 a8 8 0 0 1 10 6"/>
+      <path d="M184 132 a7 7 0 0 1 10 -3"/>
+      <path d="M208 132 a7 7 0 0 1 10 0"/>
+      <path d="M130 156 a7 7 0 0 1 8 -7"/>
+      <path d="M262 152 a7 7 0 0 1 7 6"/>
+    </g>
+  </g>
+</svg>

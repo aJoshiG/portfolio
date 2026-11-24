@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Aditya Joshi · Full-Stack Developer</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aditya Joshi is a full-stack developer building real-time web apps with Angular, Node.js and MongoDB, with a growing focus on machine learning.">
+  <meta name="theme-color" content="#0b1120">
+  <link rel="icon" type="image/svg+xml" href="avatar.svg">
+  <!-- Apply the saved or system theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

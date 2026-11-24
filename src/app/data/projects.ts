@@ -46,6 +46,7 @@ export const PROJECTS: Project[] = [
       'built for speed and accessibility.',
     highlights: [],
     tech: ['Angular', 'TypeScript', 'SSG', 'CSS'],
+    repoUrl: 'https://github.com/aJoshiG/portfolio',
     featured: false,
   },
 ];

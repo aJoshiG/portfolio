@@ -104,7 +104,7 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
    - [x] Absolute og:image, og:url, canonical, JSON-LD url → https://portfolio-rust-two-47.vercel.app
    - [x] `sitemap.xml` + referenced from `robots.txt`; real 404 page (`public/404.html`)
    - [x] `vercel.json`: explicit `routes` (headers → real files → 404.html with 404 status), 1-year caching for hashed files, security headers. Verified live; live Lighthouse 100/100/100/100 mobile + desktop
-   - [ ] Add the live URL to EmailJS allowed origins
+   - [-] EmailJS: skipped on purpose (2026-11-26). This is a learning project for GitHub; the form falls back to "email me directly"
    - [x] Fill the portfolio project's `repoUrl` (https://github.com/aJoshiG/portfolio)
 
 ## Decisions
@@ -114,8 +114,8 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 | Target role | **Full-stack developer with an ML focus** | SkillSwap (MEAN stack, real-time, transactions, CI) is the strongest work and is full-stack; the ML Specialization backs up the ML side. |
 | Headline | "Full-stack developer building real-time web apps, with a growing focus on machine learning." | Leads with proven skill, signals direction |
 | Project order | 1. **SkillSwap** (featured) · 2. **This portfolio** | Only solid work is shown. ChatBot and the resume-uploader are left out on purpose. The grid looks good with 1–2 projects and ends with a "More on GitHub" card. |
-| Experience | Section built now, **hidden until the internship entry is added** | Internship certificate coming later |
-| Resume | "Resume" button **hidden until `public/resume.pdf` exists** | No dead links |
+| Experience | Live: Klocrix internship (Jun–Aug 2025) with certificate PDF | Added 2026-11-26 |
+| Resume | Live: `public/resume.pdf` is the public copy **without the phone number**; source and private copy live outside the repo | Keeps the phone number private |
 | Avatar | **Illustrated avatar** (`avatar.svg`, made from the LinkedIn photo: curly hair, short beard, light-blue shirt) instead of the real photo | Friendly, matches the teal theme, also used as the favicon / Open Graph image base |
 | Look | **Dark-first, minimal, techy**: deep navy background (`#0b1120`), teal accent (`#2dd4bf`), Inter + JetBrains Mono for small labels; full light theme as well | Fits a developer portfolio, high contrast, one accent keeps it calm |
 | Contact form | **EmailJS** | Messages go straight to the inbox, no database to secure or check |
@@ -141,9 +141,9 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 - Angular 21 prerendered site; repo link added once it's on GitHub
 
 ## Pending From Me
-- [ ] Internship details + certificate (adds the Experience entry)
-- [ ] Resume PDF (enables the Resume button)
-- [ ] EmailJS account (service ID, template ID, public key), needed when building the contact form
+- [x] Internship details + certificate (adds the Experience entry): Klocrix Business Solutions, Full Stack Developer Intern, Jun–Aug 2025 (2026-11-26)
+- [x] Resume PDF (enables the Resume button): public copy without phone number, 2026-11-26
+- [-] EmailJS account: skipped on purpose (see above)
 - [ ] New projects as they're made: add an entry to `src/app/data/projects.ts`
 
 ## Ground Rules

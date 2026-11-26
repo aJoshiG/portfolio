@@ -13,11 +13,11 @@ export const PROFILE: Profile = {
     "I'm a Computer Science student at JNU, New Delhi, doing a dual B.Tech + M.Tech degree. " +
     'I like building complete products, from the database and API to the interface people use, ' +
     'and I care about the details that make software feel reliable. ' +
-    "Right now I'm going deeper into machine learning and looking for internships where I can ship real features.",
+    "Right now I'm going deeper into machine learning and looking for full-time roles where I can ship real features.",
   location: 'New Delhi, India',
-  availability: 'Open to internships',
+  availability: 'Open to work',
   avatar: '/avatar.svg',
-  resumeUrl: '',
+  resumeUrl: '/resume.pdf',
   socials: [
     { label: 'GitHub', url: 'https://github.com/aJoshiG', icon: 'github' },
     {

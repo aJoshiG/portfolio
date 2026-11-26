@@ -45,9 +45,14 @@ describe('Hero', () => {
     expect(el.textContent).toContain(PROFILE.availability);
   });
 
-  it('hides the Resume button while resumeUrl is empty', async () => {
+  it('shows a Resume button only when a resume is set', async () => {
     const el = await render(Hero);
-    expect(el.textContent).not.toContain('Resume');
+    const link = el.querySelector(`a[href="${PROFILE.resumeUrl}"]`);
+    if (PROFILE.resumeUrl) {
+      expect(link?.textContent).toContain('Resume');
+    } else {
+      expect(el.textContent).not.toContain('Resume');
+    }
   });
 });
 

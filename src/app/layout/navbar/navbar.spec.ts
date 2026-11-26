@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { Navbar } from './navbar';
 import { NAV_ITEMS } from '../../data/navigation';
+import { PROFILE } from '../../data/profile';
 
 describe('Navbar', () => {
   async function render() {
@@ -16,9 +17,14 @@ describe('Navbar', () => {
     expect(links[0].textContent).toContain('01.');
   });
 
-  it('hides the Resume button while there is no resume', async () => {
+  it('shows a Resume button only when a resume is set', async () => {
     const { el } = await render();
-    expect(el.textContent).not.toContain('Resume');
+    const link = el.querySelector(`a[href="${PROFILE.resumeUrl}"]`);
+    if (PROFILE.resumeUrl) {
+      expect(link?.textContent).toContain('Resume');
+    } else {
+      expect(el.textContent).not.toContain('Resume');
+    }
   });
 
   it('opens and closes the mobile menu', async () => {

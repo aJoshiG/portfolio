@@ -16,7 +16,7 @@ import { ContactForm } from './contact-form';
         <div class="intro">
           <p class="lead">Let's build something together.</p>
           <p class="text">
-            I'm looking for internships and interesting projects. Whether you have an opportunity, a
+            I'm open to full-time roles and interesting projects. Whether you have an opportunity, a
             question or just want to say hi, send me a message and I'll get back to you.
           </p>
 

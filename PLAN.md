@@ -1,5 +1,8 @@
 # Portfolio Website — Plan
 
+> **Status: done (2026-11-26).** Live at https://portfolio-rust-two-47.vercel.app, code at https://github.com/aJoshiG/portfolio.
+> Ongoing: add new projects to `src/app/data/projects.ts` (and to the resume) as they're built.
+
 Reference: the earlier vibe-coded Angular portfolio at `D:\Angular\AngularLearning\aditya-portfolio` (used only as a content/idea reference; nothing is reused directly).
 
 ## Concept
@@ -69,16 +72,16 @@ Angular conventions: standalone components, signals, new control flow (`@if` / `
 ## Features
 
 ### Must-have (v1)
-- [ ] Responsive, mobile-first layout
-- [ ] Dark/light theme with no flash of the wrong theme on load
-- [ ] Scroll-spy nav with smooth scrolling
-- [ ] Contact form: validation, loading/error/success states, honeypot spam field, sends via EmailJS
-- [ ] Resume PDF download (`/public/resume.pdf`)
-- [ ] SEO: title, meta description, Open Graph image, favicon
-- [ ] Accessibility: semantic HTML, keyboard navigation, focus states, alt text, AA contrast
-- [ ] Lighthouse score 95+
+- [x] Responsive, mobile-first layout
+- [x] Dark/light theme with no flash of the wrong theme on load
+- [x] Scroll-spy nav with smooth scrolling
+- [x] Contact form: validation, loading/error/success states, honeypot spam field (sending via EmailJS left off on purpose; the form points visitors to email instead)
+- [x] Resume PDF download (`/public/resume.pdf`, public copy without phone number)
+- [x] SEO: title, meta description, Open Graph image, favicon
+- [x] Accessibility: semantic HTML, keyboard navigation, focus states, alt text, AA contrast
+- [x] Lighthouse score 95+ (live: 100/100/100/100 on mobile and desktop)
 
-### Nice-to-have (v2)
+### Nice-to-have (v2): ideas only, not planned for now
 - [ ] Project filters by tech (ML / Web / etc.)
 - [ ] Project detail pages (`/projects/:slug`) with write-ups
 - [ ] Live GitHub stats / pinned repos
@@ -98,14 +101,15 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 1. [x] **Scaffold**: Angular 21 project, static prerender, self-hosted fonts, theme tokens, typed data files, local git (done 2026-11-25)
 2. [x] **Layout**: sticky navbar with scroll spy + mobile menu, theme toggle, footer, icon set, section headers + shells (done 2026-11-25)
 3. [x] **Content sections**: hero, about, skills, experience (hidden until filled), projects (SkillSwap featured + screenshot), achievements, contact intro (done 2026-11-25)
-4. [x] **Contact**: validated form (EmailJS, loaded on demand), honeypot + fill-time + rate-limit spam protection, accessible errors/success, lazy-loaded with @defer (done 2026-11-25; needs EmailJS keys, see README)
+4. [x] **Contact**: validated form (EmailJS, loaded on demand), honeypot + fill-time + rate-limit spam protection, accessible errors/success, lazy-loaded with @defer (done 2026-11-25; EmailJS keys left empty on purpose, setup steps in README)
 5. [x] **Polish**: scroll-reveal animations, light-theme contrast fix, responsive WebP images, robots.txt, Open Graph + Twitter + JSON-LD tags, link-preview image + app icons. Lighthouse: mobile 97/100/100/100, desktop 100/100/100/100 (done 2026-11-25)
-6. [ ] **Final check & publish**: [x] full bug/mistake review (2026-11-25), [x] GitHub (public) and [x] Vercel deploy (https://portfolio-rust-two-47.vercel.app, 2026-11-25) (+ custom domain if wanted)
+6. [x] **Final check & publish**: [x] full bug/mistake review (2026-11-25), [x] GitHub (public) and [x] Vercel deploy (https://portfolio-rust-two-47.vercel.app, 2026-11-25) (+ custom domain if wanted)
    - [x] Absolute og:image, og:url, canonical, JSON-LD url → https://portfolio-rust-two-47.vercel.app
    - [x] `sitemap.xml` + referenced from `robots.txt`; real 404 page (`public/404.html`)
    - [x] `vercel.json`: explicit `routes` (headers → real files → 404.html with 404 status), 1-year caching for hashed files, security headers. Verified live; live Lighthouse 100/100/100/100 mobile + desktop
    - [-] EmailJS: skipped on purpose (2026-11-26). This is a learning project for GitHub; the form falls back to "email me directly"
    - [x] Fill the portfolio project's `repoUrl` (https://github.com/aJoshiG/portfolio)
+7. [x] **Content update** (done 2026-11-26): Klocrix internship + certificate in Experience, "Open to work" (full-time roles) wording, updated one-page resume (public copy without phone number at `/resume.pdf`), README rewritten for GitHub visitors with screenshot, repo description + website link updated
 
 ## Decisions
 
@@ -138,7 +142,7 @@ Minimal and calm, in the style of Brittany Chiang or Lee Robinson:
 - **Images**: screenshots in the repo's `docs/images/` (`tour.gif`, `matches.png`, `chat.png`, `sessions.png`, `profile.png`, `mobile-matches.png`)
 
 ### This Portfolio
-- Angular 21 prerendered site; repo link added once it's on GitHub
+- Angular 21 prerendered site: https://github.com/aJoshiG/portfolio
 
 ## Pending From Me
 - [x] Internship details + certificate (adds the Experience entry): Klocrix Business Solutions, Full Stack Developer Intern, Jun–Aug 2025 (2026-11-26)
